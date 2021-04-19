@@ -1,5 +1,5 @@
 {
-    "name": "crawler",
+    "name": "elastic_consumer",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
@@ -7,7 +7,7 @@
         "start": "node dist/index",
         "build": "webpack --config webpack.prod.config.js",
         "webpack": "webpack --config webpack.dev.config.js",
-        "start-dev": "npx ts-node src/crawler.ts",
+        "start-dev": "npx ts-node src/consumer.ts",
         "test": "jest --coverage"
     },
     "author": "",
@@ -19,7 +19,6 @@
         "glob-watcher": "^5.0.5",
         "jest": "^26.6.3",
         "nats": "^2.0.2",
-        "pdf-parse": "^1.1.1",
         "prettier": "^2.2.1",
         "ts-jest": "^26.5.5",
         "ts-loader": "^9.0.0",
