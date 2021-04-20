@@ -1,0 +1,14 @@
+version: "3"
+services:
+  api:
+    build: ./apiTest
+    expose:
+      - "8080"
+  load_balancer:
+    build:
+      context : ./server/
+      dockerfile: server.dockerfile
+    depends_on:
+      - api
+    ports:
+      - "4000:4000"
