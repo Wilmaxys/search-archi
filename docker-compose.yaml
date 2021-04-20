@@ -41,10 +41,10 @@ services:
     ports:
       - 9200:9200
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9200"]
+      test: ["CMD-SHELL", "curl --silent --fail localhost:9200/_cluster/health?wait_for_status=green&timeout=1s || exit 1"]
       interval: 30s
-      timeout: 10s
-      retries: 15
+      timeout: 30s
+      retries: 3
   nats:
     image: nats:latest
     ports:

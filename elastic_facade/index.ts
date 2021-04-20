@@ -18,7 +18,7 @@ server.route({
     },
     response: {
       200: {
-        type: 'array'
+        type: 'object'
       }
     }
   },
@@ -34,7 +34,7 @@ server.route({
         }
       }
     })
-    reply.send(body)
+    reply.send(JSON.stringify(body))
   }
 })
 
