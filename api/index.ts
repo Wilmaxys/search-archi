@@ -18,7 +18,7 @@ const cache: ICache = new SimpleCache(
 const cacheInterval = setInterval(() => cache.empty(), 5 * 60000);
 
 //@Facades
-const facades = ['http://elastic_facade:5001/search'];
+const facades = ['http://elastic_facade:8080/search'];
 
 //@Routes
 server.route({
@@ -60,15 +60,20 @@ server.route({
   },
 });
 
+
+server.get('/test',async (req, res) => {
+  res.send('toto');
+})
+
 //@Hooks
 server.addHook('onClose', () => clearInterval(cacheInterval));
 
 //@Server
-server.listen(5000, (err) => {
+server.listen(8080, '0.0.0.0', (err) => {
   if (err) {
     console.log(err);
     process.exit(1);
   } else {
-    console.log(`Server running, navigate to https://localhost:5000`);
+    console.log(`Server running, navigate to https://localhost:8080`);
   }
 });
