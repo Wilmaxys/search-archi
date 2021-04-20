@@ -3,6 +3,8 @@ import { connect, JSONCodec } from 'nats';
 import * as fs from "fs";
 import * as pdf from "pdf-parse";
 
+//TODO: Utiliser glob au lieu de fs
+
 (async () => {
     const watcher = watch(['./*.pdf']);
     const nc = await connect({ servers: 'localhost:4222' });
