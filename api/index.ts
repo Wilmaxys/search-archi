@@ -1,37 +1,49 @@
+import * as dotenv from 'dotenv';
 import fastify from 'fastify';
 import querystring from 'querystring';
 import axios, { AxiosResponse } from 'axios';
 import { raceToSuccess } from './utils/functions';
 import { ICache, SimpleCache } from './utils/cache';
 
+//@Load Env
+dotenv.config();
+
 const server = fastify({ logger: true });
 
 //@Cache
-const cache: ICache = new SimpleCache();
+const cache: ICache = new SimpleCache(
+  parseInt(process.env.CACHE_DURATION || '120')
+);
+// Clear old cache every 5 minutes
+const cacheInterval = setInterval(() => cache.empty(), 5 * 60000);
 
 //@Facades
-const facades = ['http://localhost:5001'];
+const facades = ['http://elastic_facade:5001/search'];
 
 //@Routes
-server.get(
-  '/',
-  {
-    schema: {
-      querystring: {
-        query: {
-          type: 'string',
-        },
+server.route({
+  method: 'GET',
+  url: '/',
+  schema: {
+    querystring: {
+      query: {
+        type: 'string',
       },
     },
   },
-  async (req, res) => {
+  handler: async (req, res) => {
     try {
       const query = querystring.stringify(
         req.query as querystring.ParsedUrlQueryInput
       );
 
-      if (cache.get(query)) {
-        res.status(200).send(cache.get(query));
+      if (!query) {
+        return res.status(400).send('Query parameter cannot be null');
+      }
+
+      const cachedResponse = cache.get(query);
+      if (cachedResponse) {
+        res.status(200).send(cachedResponse);
       } else {
         const promises: Promise<AxiosResponse<any>>[] = [];
         facades.forEach((facade) =>
@@ -43,10 +55,13 @@ server.get(
         res.status(200).send(cache.get(query));
       }
     } catch (err) {
-      res.status(500).send({ message: err });
+      res.status(500).send(err);
     }
-  }
-);
+  },
+});
+
+//@Hooks
+server.addHook('onClose', () => clearInterval(cacheInterval));
 
 //@Server
 server.listen(5000, (err) => {
