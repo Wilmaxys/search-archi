@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  nginx:
+    build:
+      context : ./nginx/
+      dockerfile: Nginx.Dockerfile
+    depends_on:
+      - api1
+      - api2
+    ports:
+      - "5000:5000"
+    restart: always
+
+  api1:
+    build: ../api
+    ports:
+      - "5001:8080"
+  api2:
+    build: ../api
+    ports:
+      - "5002:8080"
