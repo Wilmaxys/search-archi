@@ -12,8 +12,7 @@ services:
       - ELASTICSEARCH_USER=elastic
       - ELASTICSEARCH_PASSWORD=changeme
     depends_on:
-      elastic:
-        condition: service_healthy
+      - elastic
     expose:
       - "8080"
   proxy:
@@ -40,11 +39,6 @@ services:
       - ./elastic:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9200"]
-      interval: 30s
-      timeout: 10s
-      retries: 15
   nats:
     image: nats:latest
     ports:

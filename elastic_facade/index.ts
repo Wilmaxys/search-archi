@@ -34,23 +34,23 @@ server.route({
         }
       }
     })
-    reply.send(body.hits.hits)
+    reply.send(body)
   }
 })
 
 //@Server
-server.listen(5001, (err) => {
+server.listen(8080, '0.0.0.0', (err) => {
   if (err) {
     console.log(err);
     process.exit(1);
   } else {
-    console.log(`Server running, navigate to https://localhost:5001`);
+    console.log(`Server running, navigate to https://localhost:8080`);
   }
 });
 
 //ElasticSearch client
 export const client = new Client({
-  node: 'http://localhost:9200',
+  node: 'http://elastic:9200',
   auth: {
     username: process.env.ELASTICSEARCH_USER || "",
     password: process.env.ELASTICSEARCH_PASSWORD || ""
