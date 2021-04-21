@@ -1,6 +1,6 @@
 # ArchiWeb
 
-## Command 
+## Command
 
 ```
 docker-compose up --scale api=2

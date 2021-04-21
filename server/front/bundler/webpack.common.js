@@ -1,88 +1,71 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
-const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
 
 module.exports = {
     entry: path.resolve(__dirname, '../src/script.js'),
-    output:
-    {
+    output: {
         filename: 'bundle.[contenthash].js',
-        path: path.resolve(__dirname, '../dist')
+        path: path.resolve(__dirname, '../dist'),
     },
     devtool: 'source-map',
-    plugins:
-    [
+    plugins: [
         new CopyWebpackPlugin({
-            patterns: [
-                { from: path.resolve(__dirname, '../static') }
-            ]
+            patterns: [{ from: path.resolve(__dirname, '../static') }],
         }),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html'),
-            minify: true
+            minify: true,
         }),
-        new MiniCSSExtractPlugin()
+        new MiniCSSExtractPlugin(),
     ],
-    module:
-    {
-        rules:
-        [
+    module: {
+        rules: [
             // HTML
             {
                 test: /\.(html)$/,
-                use: ['html-loader']
+                use: ['html-loader'],
             },
 
             // JS
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use:
-                [
-                    'babel-loader'
-                ]
+                use: ['babel-loader'],
             },
 
             // CSS
             {
                 test: /\.css$/,
-                use:
-                [
-                    MiniCSSExtractPlugin.loader,
-                    'css-loader'
-                ]
+                use: [MiniCSSExtractPlugin.loader, 'css-loader'],
             },
 
             // Images
             {
                 test: /\.(jpg|png|gif|svg)$/,
-                use:
-                [
+                use: [
                     {
                         loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/images/'
-                        }
-                    }
-                ]
+                        options: {
+                            outputPath: 'assets/images/',
+                        },
+                    },
+                ],
             },
 
             // Fonts
             {
                 test: /\.(ttf|eot|woff|woff2)$/,
-                use:
-                [
+                use: [
                     {
                         loader: 'file-loader',
-                        options:
-                        {
-                            outputPath: 'assets/fonts/'
-                        }
-                    }
-                ]
-            }
-        ]
-    }
-}
+                        options: {
+                            outputPath: 'assets/fonts/',
+                        },
+                    },
+                ],
+            },
+        ],
+    },
+};

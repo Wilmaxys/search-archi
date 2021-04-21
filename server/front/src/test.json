@@ -21,22 +21,12 @@
                 "_score": 6.196835,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Duncan Jones"
-                        ],
-                        "genres": [
-                            "Action",
-                            "Adventure",
-                            "Fantasy"
-                        ],
+                        "directors": ["Duncan Jones"],
+                        "genres": ["Action", "Adventure", "Fantasy"],
                         "plot": "An epic fantasy/adventure based on the popular video game series.",
                         "title": "Warcraft",
                         "rank": 764,
-                        "actors": [
-                            "Paula Patton",
-                            "Paul Dano",
-                            "Anson Mount"
-                        ],
+                        "actors": ["Paula Patton", "Paul Dano", "Anson Mount"],
                         "year": 2015
                     },
                     "id": "tt0803096",
@@ -50,16 +40,10 @@
                 "_score": 6.180084,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Ronald Neame",
-                            "Irwin Allen"
-                        ],
+                        "directors": ["Ronald Neame", "Irwin Allen"],
                         "release_date": "1972-12-12T00:00:00Z",
                         "rating": 7,
-                        "genres": [
-                            "Action",
-                            "Adventure"
-                        ],
+                        "genres": ["Action", "Adventure"],
                         "image_url": "http://ia.media-imdb.com/images/M/MV5BMTczNDU2MzIzNl5BMl5BanBnXkFtZTYwNjg0MDY5._V1_SX400_.jpg",
                         "plot": "A group of passengers struggle to survive and escape, when their ocean liner completely capsizes at sea.",
                         "title": "The Poseidon Adventure",
@@ -83,26 +67,16 @@
                 "_score": 5.7179503,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Richard Donner"
-                        ],
+                        "directors": ["Richard Donner"],
                         "release_date": "1985-06-07T00:00:00Z",
                         "rating": 7.6,
-                        "genres": [
-                            "Adventure",
-                            "Comedy",
-                            "Family"
-                        ],
+                        "genres": ["Adventure", "Comedy", "Family"],
                         "image_url": "http://ia.media-imdb.com/images/M/MV5BMTY1Mzk3MTg0M15BMl5BanBnXkFtZTcwOTQzODYyMQ@@._V1_SX400_.jpg",
                         "plot": "A group of kids embark on a wild adventure after finding a pirate treasure map.",
                         "title": "The Goonies",
                         "rank": 318,
                         "running_time_secs": 6840,
-                        "actors": [
-                            "Sean Astin",
-                            "Josh Brolin",
-                            "Jeff Cohen"
-                        ],
+                        "actors": ["Sean Astin", "Josh Brolin", "Jeff Cohen"],
                         "year": 1985
                     },
                     "id": "tt0089218",
@@ -116,16 +90,10 @@
                 "_score": 5.7179503,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Steven Spielberg"
-                        ],
+                        "directors": ["Steven Spielberg"],
                         "release_date": "1989-12-22T00:00:00Z",
                         "rating": 6.2,
-                        "genres": [
-                            "Fantasy",
-                            "Romance",
-                            "Drama"
-                        ],
+                        "genres": ["Fantasy", "Romance", "Drama"],
                         "image_url": "http://ia.media-imdb.com/images/M/MV5BMjAxMjM3NzI5Ml5BMl5BanBnXkFtZTcwNDQ1NTMyMQ@@._V1_SX400_.jpg",
                         "plot": "A romantic adventure about a legendary pilot's passion for dare-devil firefighting and his girl.",
                         "title": "Always",
@@ -149,17 +117,10 @@
                 "_score": 5.396308,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Tim Burton"
-                        ],
+                        "directors": ["Tim Burton"],
                         "release_date": "1985-07-26T00:00:00Z",
                         "rating": 6.8,
-                        "genres": [
-                            "Adventure",
-                            "Comedy",
-                            "Family",
-                            "Fantasy"
-                        ],
+                        "genres": ["Adventure", "Comedy", "Family", "Fantasy"],
                         "image_url": "http://ia.media-imdb.com/images/M/MV5BMjEyMjI3MjAxMF5BMl5BanBnXkFtZTYwOTMxNzk4._V1_SX400_.jpg",
                         "plot": "When eccentric man-child Pee-Wee Herman gets his beloved bike stolen in broad daylight, he sets out across the U.S. on the adventure of his life.",
                         "title": "Pee-wee's Big Adventure",
@@ -183,15 +144,10 @@
                 "_score": 5.396308,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Sean Garrity"
-                        ],
+                        "directors": ["Sean Garrity"],
                         "release_date": "2012-09-11T00:00:00Z",
                         "rating": 6,
-                        "genres": [
-                            "Comedy",
-                            "Romance"
-                        ],
+                        "genres": ["Comedy", "Romance"],
                         "image_url": "http://ia.media-imdb.com/images/M/MV5BMjI5MTYzOTMyNF5BMl5BanBnXkFtZTcwNTgwNDYzOQ@@._V1_SX400_.jpg",
                         "plot": "To win back his ex-girlfriend, a conservative accountant enlists the help of an exotic dancer to guide him on a quest for sexual experience, leading him into a world of strip clubs, sensual massage parlors, cross-dressing and S & M.",
                         "title": "My Awkward Sexual Adventure",
@@ -215,16 +171,10 @@
                 "_score": 5.396308,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Stephen Herek"
-                        ],
+                        "directors": ["Stephen Herek"],
                         "release_date": "1989-02-17T00:00:00Z",
                         "rating": 6.8,
-                        "genres": [
-                            "Adventure",
-                            "Comedy",
-                            "Sci-Fi"
-                        ],
+                        "genres": ["Adventure", "Comedy", "Sci-Fi"],
                         "image_url": "http://ia.media-imdb.com/images/M/MV5BMTk3Mjk5MzI3OF5BMl5BanBnXkFtZTcwMTY4MzcyNA@@._V1_SX400_.jpg",
                         "plot": "Two seemingly dumb teens struggle to prepare a historical presentation with the help of a time machine.",
                         "title": "Bill & Ted's Excellent Adventure",
@@ -248,9 +198,7 @@
                 "_score": 5.396308,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Jon Favreau"
-                        ],
+                        "directors": ["Jon Favreau"],
                         "release_date": "2005-11-06T00:00:00Z",
                         "rating": 6.1,
                         "genres": [
@@ -284,9 +232,7 @@
                 "_score": 5.307771,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Juan José Campanella"
-                        ],
+                        "directors": ["Juan José Campanella"],
                         "release_date": "2013-07-18T00:00:00Z",
                         "rating": 7.7,
                         "genres": [
@@ -318,15 +264,9 @@
                 "_score": 5.2142596,
                 "_source": {
                     "fields": {
-                        "directors": [
-                            "Patrick Hughes"
-                        ],
+                        "directors": ["Patrick Hughes"],
                         "release_date": "2014-08-13T00:00:00Z",
-                        "genres": [
-                            "Action",
-                            "Adventure",
-                            "Thriller"
-                        ],
+                        "genres": ["Action", "Adventure", "Thriller"],
                         "plot": "The third installment of the action-adventure franchise that follows the exploits of Barney Ross, Lee Christmas, and their associates.",
                         "title": "The Expendables 3",
                         "rank": 123,
