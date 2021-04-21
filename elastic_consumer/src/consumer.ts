@@ -13,13 +13,10 @@ export const client = new Client({
 /** Mapping data to be stored in elastic search**/
 async function init() {
   try {
-    if (
-      (
-        await client.indices.exists({
-          index: 'documents',
-        })
-      )?.body
-    ) {
+    const exists = await client.indices.exists({
+      index: 'documents',
+    });
+    if (exists?.body) {
       await client.indices.delete({
         index: 'documents',
       });
@@ -46,9 +43,6 @@ async function init() {
   } catch (error) {
     console.log(error.meta.body.error);
     console.log(error.meta.meta.request);
-    throw new Error(
-      'sljdknfvlkjsdfnvkjsdfnvsdfkjnvsdfkjnvsdfkjnvkdfjsvksdjfnvsdkfjnvsdfkjnvsdfkjnvdfskjvnfdkjvnsdfkjnvdfksjvndsfkjnvdfskjvn'
-    );
   }
 }
 
@@ -63,6 +57,7 @@ init();
     for await (const m of sub) {
       const data = jc.decode(m.data) as any;
       if (data) {
+        const path = data.path?.replace('/usr/share/data/', '');
         switch (data.action) {
           case 'add':
             client
@@ -70,10 +65,10 @@ init();
                 index: 'documents',
                 refresh: true,
                 body: {
-                  title: data.file.info.Title,
-                  author: data.file.info.Author,
-                  content: data.file.text.text,
-                  path: data.path,
+                  title: data.file?.info?.Title,
+                  author: data.file?.info?.Author,
+                  content: data.file?.text?.text,
+                  path: path,
                 },
               })
               .then(() => console.log(`${data.path} created`))
@@ -89,7 +84,7 @@ init();
                 body: {
                   query: {
                     match: {
-                      path: data.path,
+                      path: path,
                     },
                   },
                 },
@@ -109,11 +104,11 @@ init();
                     title: data.file.info.Title,
                     author: data.file.info.Author,
                     content: data.file.text.text,
-                    path: data.path,
+                    path: path,
                   },
                   query: {
                     match: {
-                      path: data.path,
+                      path: path,
                     },
                   },
                 },
