@@ -1,8 +1,6 @@
 import './style.css'
 const axios = require('axios').default;
 
-
-
 document.getElementById("submitSearch").onclick = function(){
 
 
