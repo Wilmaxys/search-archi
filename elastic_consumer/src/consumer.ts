@@ -13,29 +13,33 @@ export const client = new Client({
 /** Mapping data to be stored in elastic search**/
 async function init() {
   if (
-    !(await client.indices.exists({
+    await client.indices.exists({
       index: 'documents',
-    }))
+    })
   ) {
-    client.indices
-      .create({
-        index: 'documents',
-        wait_for_active_shards: '1',
-        body: {
-          mappings: {
-            properties: {
-              title: { type: 'text' },
-              author: { type: 'text' },
-              content: { type: 'text' },
-              path: { type: 'text' },
-            },
+    await client.indices.delete({
+      index: 'documents',
+    });
+  }
+  client.indices
+    .create({
+      index: 'documents',
+      wait_for_active_shards: '1',
+      body: {
+        mappings: {
+          properties: {
+            title: { type: 'text' },
+            author: { type: 'text' },
+            content: { type: 'text' },
+            path: { type: 'text' },
           },
         },
-      })
-      .catch((error) => {
-        console.log(error.meta.body);
-      });
-  }
+      },
+    })
+    .then(() => console.log('index created'))
+    .catch((error) => {
+      console.log(error.meta.body);
+    });
 }
 
 init();
@@ -62,6 +66,7 @@ init();
                   path: data.path,
                 },
               })
+              .then(() => console.log(`${data.path} created`))
               .catch((error) => {
                 console.log(error);
               });
@@ -79,6 +84,31 @@ init();
                   },
                 },
               })
+              .then(() => console.log(`${data.path} deleted`))
+              .catch((error) => {
+                console.log(error);
+              });
+            break;
+          case 'change':
+            client
+              .updateByQuery({
+                index: 'documents',
+                refresh: true,
+                body: {
+                  doc: {
+                    title: data.file.info.Title,
+                    author: data.file.info.Author,
+                    content: data.file.text.text,
+                    path: data.path,
+                  },
+                  query: {
+                    match: {
+                      path: data.path,
+                    },
+                  },
+                },
+              })
+              .then(() => console.log(`${data.path} updated`))
               .catch((error) => {
                 console.log(error);
               });
