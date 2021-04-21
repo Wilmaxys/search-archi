@@ -24,6 +24,9 @@ services:
       - api
     ports:
       - "4000:4000"
+      - "4001:80"
+    volumes:
+        - ./server/front/dist:/usr/share/nginx/html
   elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: es01

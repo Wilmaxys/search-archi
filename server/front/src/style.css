@@ -1,0 +1,83 @@
+*{
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+body{
+   background-color:#121212 ;
+   color: #fff;
+}
+.container{
+    width: 920px;
+    margin: 0 auto;
+}
+.searchContainer{
+    margin-top: 50px;
+}
+.searchContainer, .resultSearch{
+    padding: 30px;
+    border-radius:20px;
+    background-color: #202020;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.resultSearch{
+    margin-top: 30px;
+    display: none;
+
+}
+.resultSearch p{
+    line-height: 30px;
+}
+hr{
+    border: none;
+    height: 1px;
+    background-color: #fff;
+    margin: 30px 0;
+}
+h1{
+    margin: 0;
+    text-align: center;
+    font-size: 4rem;
+}
+form, #resultSearch{
+    margin: 30px auto;
+    width: 70%;
+}
+input{
+    width: 84%;
+    margin: 0 auto;
+    height: 30px;
+    font-size: 20px;
+    padding: 10px;
+    background:transparent;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 50px;
+}
+textarea:focus, input:focus, button{
+    outline: none;
+}
+input::placeholder {
+    color: #fff;
+    opacity: 0.6;
+  }
+.text-center{
+    text-align: center;
+}
+button{
+    float: right;
+    height: 54px;
+    width: 54px;
+    margin: 0;
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+.result span{
+    background-color: #fff;
+    color: #000;
+    padding: 4px 8px;
+    font-size:1.2rem;
+    border-radius: 20px;
+}
