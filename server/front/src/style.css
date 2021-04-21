@@ -1,114 +1,119 @@
-*{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+* {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-body{
-   background-color:#121212 ;
-   color: #fff;
+body {
+  background-color: #121212;
+  color: #fff;
 }
-.container{
-    width: 920px;
-    margin: 0 auto;
+.container {
+  width: 920px;
+  margin: 0 auto;
 }
-img{
-    max-width: 400px;
-    display: block;
-    margin: 0 auto;
+img {
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
 }
-.searchContainer{
-    margin-top: 50px;
+.searchContainer {
+  margin-top: 50px;
 }
-.searchContainer, #resultSearch{
-    padding: 30px;
-    border-radius:20px;
-    background-color: #202020;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+.searchContainer,
+#resultSearch {
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #202020;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
-#resultSearch{
-    margin-top: 30px;
+#resultSearch {
+  margin-top: 30px;
 }
-#resultSearch p{
-    line-height: 30px;
+#resultSearch p {
+  line-height: 30px;
 }
-hr{
-    border: none;
-    height: 1px;
-    background-color: #fff;
-    margin: 30px 0;
+hr {
+  border: none;
+  height: 1px;
+  background-color: #fff;
+  margin: 30px 0;
 }
-h1{
-    margin: 0;
-    text-align: center;
-    font-size: 4rem;
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 4rem;
 }
-form{
-    width: 70%;
+form {
+  width: 70%;
 }
-form, #resultSearch{
-    margin: 30px auto;
+form,
+#resultSearch {
+  margin: 30px auto;
 }
-input{
-    width: 84%;
-    margin: 0 auto;
-    height: 30px;
-    font-size: 20px;
-    padding: 10px;
-    background:transparent;
-    border: 2px solid #fff;
-    color: #fff;
-    border-radius: 50px;
+input {
+  width: 84%;
+  margin: 0 auto;
+  height: 30px;
+  font-size: 20px;
+  padding: 10px;
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  border-radius: 50px;
 }
-textarea:focus, input:focus, button{
-    outline: none;
+textarea:focus,
+input:focus,
+button {
+  outline: none;
 }
 input::placeholder {
-    color: #fff;
-    opacity: 0.6;
-  }
-.text-center{
-    text-align: center;
+  color: #fff;
+  opacity: 0.6;
 }
-button{
-    float: right;
-    height: 54px;
-    width: 54px;
-    margin: 0;
-    background-color: transparent;
-    border: 2px solid #fff;
-    border-radius: 50px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #fff;
+.text-center {
+  text-align: center;
 }
-.result span.find{
-    font-weight: bold;
-    font-size:1.2rem;
-    border-radius: 20px;
+button {
+  float: right;
+  height: 54px;
+  width: 54px;
+  margin: 0;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #fff;
 }
-.author{
-    font-size: 0.8rem;
-    opacity: 0.5;
+.result span.find {
+  font-weight: bold;
+  font-size: 1.2rem;
+  border-radius: 20px;
 }
-.btn{
-    display: inline-block;
-    background-color: #fff;
-    border-radius: 30px;
-    padding: 9px 25px;
-    color: #121212;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-top: 10px;
-    opacity: 0.9;
+.author {
+  font-size: 0.8rem;
+  opacity: 0.5;
 }
-.btn:hover{
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: #fff;
+.btn {
+  display: inline-block;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 9px 25px;
+  color: #121212;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 10px;
+  opacity: 0.9;
 }
-.type{
-    background-color: #fff;
-    border-radius: 30px;
-    color: #121212;
-    padding: 3px 10px;
-    font-size: 0.8rem;
-    float: right;
+.btn:hover {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.type {
+  background-color: #fff;
+  border-radius: 30px;
+  color: #121212;
+  padding: 3px 10px;
+  font-size: 0.8rem;
+  float: right;
 }

@@ -1,5 +1,20 @@
 version: '3'
 services:
+  crawler:
+    build: ./crawler
+    depends_on:
+      - elastic_consumer
+      - nats
+      - proxy
+    volumes:
+      - ./data_store:/usr/share/data
+  elastic_consumer:
+    build: ./elastic_consumer
+    depends_on:
+      elastic:
+        condition: service_healthy
+    volumes:
+      - ./data_store:/usr/share/data
   api:
     build: ./api
     depends_on:
@@ -10,7 +25,7 @@ services:
     build: ./elastic_facade
     environment:
       - ELASTICSEARCH_USER=elastic
-      - ELASTICSEARCH_PASSWORD=changeme
+      - ELASTICSEARCH_PASSWORD=password
     depends_on:
       elastic:
         condition: service_healthy
@@ -25,9 +40,14 @@ services:
     ports:
       - '4000:4000'
       - '4001:80'
+      - '4002:8080'
+    volumes:
+      - ./data_store:/usr/share/data
   elastic:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.12.0
     container_name: es01
+    depends_on:
+      - nats
     environment:
       - node.name=es01
       - discovery.type=single-node
@@ -54,27 +74,10 @@ services:
     image: nats:latest
     ports:
       - '4222:4222'
-  influxdb:
-    image: influxdb:latest
-    networks:
-      - k6
-      - grafana
-    ports:
-      - '8086:8086'
-    environment:
-      - INFLUXDB_DB=k6
+
+networks:
+  k6:
   grafana:
-    image: grafana/grafana:latest
-    networks:
-      - grafana
-    ports:
-      - '3000:3000'
-    environment:
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_BASIC_ENABLED=false
-    volumes:
-      - ./grafana-datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
 
 volumes:
   data01:

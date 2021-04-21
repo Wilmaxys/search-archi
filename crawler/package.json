@@ -5,10 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "node dist/index",
-        "build": "webpack --config webpack.prod.config.js",
-        "webpack": "webpack --config webpack.dev.config.js",
-        "start-dev": "npx ts-node src/crawler.ts",
-        "test": "jest --coverage"
+        "build": "tsc --project ./"
     },
     "author": "",
     "license": "ISC",

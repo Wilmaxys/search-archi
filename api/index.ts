@@ -4,18 +4,16 @@ import querystring from 'querystring';
 import axios, { AxiosResponse } from 'axios';
 import { raceToSuccess } from './utils/functions';
 import { ICache, SimpleCache } from './utils/cache';
-import fastifyCors from 'fastify-cors'
+import fastifyCors from 'fastify-cors';
 //@Load Env
 dotenv.config();
 
 const server = fastify({ logger: true });
 
-server.register(fastifyCors, { 
-  origin:'*',
-  methods:['POST', 'GET'],
-})
-
-
+server.register(fastifyCors, {
+  origin: '*',
+  methods: ['POST', 'GET'],
+});
 
 //@Cache
 const cache: ICache = new SimpleCache(

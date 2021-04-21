@@ -6,8 +6,8 @@ import * as pdf from 'pdf-parse';
 //TODO: Utiliser glob au lieu de fs
 
 (async () => {
-    const watcher = watch(['./*.pdf']);
-    const nc = await connect({ servers: 'localhost:4222' });
+    const watcher = watch(['/usr/share/data/*.pdf']);
+    const nc = await connect({ servers: 'nats:4222' });
     const jc = JSONCodec();
     console.log(`connected to ${nc.getServer()}`);
 
@@ -55,7 +55,7 @@ import * as pdf from 'pdf-parse';
         );
     });
 
-    fs.readdir('.', (err, files) => {
+    fs.readdir('/usr/share/data', (err, files) => {
         if (err) {
             console.error(err);
             return;
@@ -63,7 +63,7 @@ import * as pdf from 'pdf-parse';
 
         files.forEach((file) => {
             if (file.endsWith('.pdf')) {
-                handleChange('add', file);
+                handleChange('add', `/usr/share/data/${file}`);
             }
         });
     });

@@ -3,7 +3,7 @@ import { Client } from '@elastic/elasticsearch';
 
 //ElasticSearch client
 export const client = new Client({
-  node: 'http://localhost:9200',
+  node: 'http://elastic:9200',
   auth: {
     username: process.env.ELASTICSEARCH_USER || '',
     password: process.env.ELASTICSEARCH_PASSWORD || '',
@@ -12,40 +12,50 @@ export const client = new Client({
 
 /** Mapping data to be stored in elastic search**/
 async function init() {
-  if (
-    await client.indices.exists({
-      index: 'documents',
-    })
-  ) {
-    await client.indices.delete({
-      index: 'documents',
-    });
-  }
-  client.indices
-    .create({
-      index: 'documents',
-      wait_for_active_shards: '1',
-      body: {
-        mappings: {
-          properties: {
-            title: { type: 'text' },
-            author: { type: 'text' },
-            content: { type: 'text' },
-            path: { type: 'text' },
+  try {
+    if (
+      (
+        await client.indices.exists({
+          index: 'documents',
+        })
+      )?.body
+    ) {
+      await client.indices.delete({
+        index: 'documents',
+      });
+    }
+    client.indices
+      .create({
+        index: 'documents',
+        wait_for_active_shards: '1',
+        body: {
+          mappings: {
+            properties: {
+              title: { type: 'text' },
+              author: { type: 'text' },
+              content: { type: 'text' },
+              path: { type: 'text' },
+            },
           },
         },
-      },
-    })
-    .then(() => console.log('index created'))
-    .catch((error) => {
-      console.log(error.meta.body);
-    });
+      })
+      .then(() => console.log('index created'))
+      .catch((error) => {
+        console.log(error.meta.body);
+      });
+  } catch (error) {
+    console.log(error.meta.body.error);
+    console.log(error.meta.meta.request);
+    throw new Error(
+      'sljdknfvlkjsdfnvkjsdfnvsdfkjnvsdfkjnvsdfkjnvkdfjsvksdjfnvsdkfjnvsdfkjnvsdfkjnvdfskjvnfdkjvnsdfkjnvdfksjvndsfkjnvdfskjvn'
+    );
+  }
 }
 
 init();
 
 (async () => {
-  const nc = await connect({ servers: 'localhost:4222' });
+  const nc = await connect({ servers: 'nats:4222' });
   const jc = JSONCodec();
 
   const sub = nc.subscribe('test');
