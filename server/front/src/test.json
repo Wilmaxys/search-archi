@@ -1,253 +1,41 @@
 {
-  "took": 90,
-  "timed_out": false,
-  "_shards": {
-    "total": 1,
-    "successful": 1,
-    "skipped": 0,
-    "failed": 0
-  },
-  "hits": {
-    "total": {
-      "value": 828,
-      "relation": "eq"
+    "took":26,
+    "timed_out":false,
+    "_shards":{
+       "total":1,
+       "successful":1,
+       "skipped":0,
+       "failed":0
     },
-    "max_score": 6.196835,
-    "hits": [
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "764",
-        "_score": 6.196835,
-        "_source": {
-          "fields": {
-            "directors": ["Duncan Jones"],
-            "genres": ["Action", "Adventure", "Fantasy"],
-            "plot": "An epic fantasy/adventure based on the popular video game series.",
-            "title": "Warcraft",
-            "rank": 764,
-            "actors": ["Paula Patton", "Paul Dano", "Anson Mount"],
-            "year": 2015
+    "hits":{
+       "total":{
+          "value":1,
+          "relation":"eq"
+       },
+       "max_score":0.2911762,
+       "hits":[
+          {
+             "_index":"documents",
+             "_type":"_doc",
+             "_id":"WQjr83gBhS_8yyIQVUJx",
+             "_score":0.2911762,
+             "_source":{
+                "title":"Présentation PowerPoint",
+                "author":"Jérémy PERROUAULT",
+                "content":"\n\nARCHITECTURES WEB\nJérémy PERROUAULT\n1\n\nINTRODUCTION\nLes archis quoi ?\n2\n\nINTRODUCTION –LE WEB\nStructure Internet\nProtocole TCP\n3\n\nINTRODUCTION –L’ARCHITECTE\nN’est pas une star obligé de connaître tout sur tout\nIl est obligé d’en savoir un peu sur tout\nN’est pas un administrateur réseau\n4\n\nINTRODUCTION –ÊTRE ARCHITECTE\nOn est pas là pour\nExpliquer que 10 millions de requêtes ne passeront pas sur un serveur OVH\nApprendre à corriger le foutoir qu’un autre architecte a laissé derrière lui\nEviter les problèmes\n\"Avoidproblemsand you’llneverbethe one whoovercamethem.\" -Richard Bach\n5\n\nINTRODUCTION –LES TECHNOLOGIES\nJEE\nASP\nPHP\nMySQL\nSQL Server\nOracle\nMongoDB\n6\nLinux\nWindows\nNodeJS\nPython\nVarnish\nBackBonesJS\nRuby\nCDN\nSOLR\nApache\nNginx\nMemcached\nIIS\n\nINTRODUCTION –L’ARCHITECTE\nConcevoir la solution dans son ensemble\nAvec les contraintes techniques et budgétaires\nOrganisation et l’imbrication des éléments qui doivent composer la solution\n2 façons de concevoir une application\nLa plus simple qui soit (pas d’anomalies possibles)\nLa plus complexe qui soit (difficile de déceler les anomalies)\n7\n\nINTRODUCTION –L’ARCHITECTE\nFlux\nQui parle à qui, en quelle langue ?\nLogiciels\nQuels composants je vais utiliser, et pourquoi je vais les mettre en place ?\nMatériels\nQuelles machines choisir, et pour quel usage ?\nCombien\nQuel est le budget dont je dispose ?\nDe combien de machines j’ai besoin ?\nDe quelle bande passante la solution que je met en place demandera ?\nDe combien de jours-homme j’ai à ma disposition ?\nAutres\nComment optimiser ?\nComment rendre la solution évolutive ?\nComment débuguer ?\nComment tester ?\nIntégration continue ?\n8\n\nINTRODUCTION –EXEMPLE DE MAUVAISE ARCHI\nUn site lent\nPerte de revenus\nUn site qui tombe\nPerte de trafic ➔perte de revenus\nUne appli bourrée de bugs aléatoires\nAudits et correctifs\nAmélioration de la vitesse avec uniquementdes machines\nPerte de marge\n9\n\nLA QUALITÉ\nLa fiabilité\nLa sécurité\n10\n\nLA QUALITÉ\nL’architecte met en œuvre sa solution\nDoit répondre aux exigences fonctionnelles\nDoit être maintenable\nDoit être évolutive\nDoit être performante\nDoit être sécurisée (voir top 10 des vulnérabilités Web par OWASP)\nDoit être fiable (taux de disponibilité)\n11\n\nTAUX DE DISPONIBILITÉ\nSe calcule en pourcentages\nVarie entre 95% et 99,999 %\n365 jours x 24 heures = 8 760 heures\nUn taux de dispo de X%\nX * 8 760 / 100 = D ➔heures de disponibilité\n8 760 -D = I ➔heures d’indisponibilité\n12\n\nTAUX DE DISPONIBILITÉ\nJ’ai un taux de disponibilité de 98% sur l’année\nA combien d’indisponibilité cela répond ?\n4 heures\n7 jours\n23 heures\n10 jours\n13\n\nTEMPS DE CHARGEMENT\nEn 2016, un benchmark US (Compass) concluait : \"1 seconde de temps \nde chargement supplémentaire pénalise la conversion de 12%\"\nEn 2015, Etam annonçait un gain de 20% de taux de conversion après \nune baisse du temps de réponse moyen de 0,7 seconde par page\nCe n’est pas toujours le trafic qui génère un site lent\nEt il faut prendre en compte toutes les étapes pour arriver jusqu’à la page web\n14\n\nTEMPS DE CHARGEMENT\nRésolution DNS\nEtablir une connexion TCP\nEnvoyer la requête\nRoutage\nProxy ?\nLoadbalancing?\nServeurs de cache ?\nServeurs applicatifs\nBase de données\n15\nGénération de la page HTML\nCompression de la page HTML ?\nEnvoie du flux\nRoutage\nGénération visuelle\nChargement des ressources\nImages, Scripts, Feuilles de style\nExécution du JS\nSans compter sur l’état de la connectivité du client\n\nMETTRE EN CACHE –POURQUOI ?\nEviter de refaire un travail (temps machine) déjà fait\nRépondre plus vite\nParce que la RAM n’est pas un coût excessif\n16\n\nMETTRE EN CACHE\nUtilisation d’un CDN\nCache de base de données (en mémoire ou en fichier)\nDevant un serveur web (Varnish)\nVarnish, sur le port 80\nApache, sur le port 8080\nApplication (Memcached)\nRésultat intermédiaire lors de la génération d’une page (commentaires d’article)\nCe qui peut être commun à plusieurs pages (menu principal)\nUtiliser la session utilisation pour éviter de lire ou écrire en base de données\nRésultat de requêtes longues\nRésultat d’appels aux web services\n...\n17\n\nMETTRE EN CACHE –ATTENTION\nAttention à ne pas exagérer !\nCertaines pages ne peuvent pas être cachées (panier utilisateur)\nLe cache n’est efficace que lorsqu’une même ressource est beaucoup \ndemandée\n18\n\nMETTRE EN CACHE –SOLUTIONS ?\nOptimisation de la génération des pages avec du NoSQL(MongoDB)\nMise en place d’un TTL infini avec un système d’invalidation intelligent\nSavoir quand chaque page est invalidée\nMise en place de crawling\nSimuler un trafic permanent sur le site qu’on garde en cache qu’on va utiliser pour les \nvraies requêtes\n19\n\nPROJET\nProjet de recherche\n20\n\nLE PROJET EN GROUPE\nMettre en place la solution web\nPrésentation de la solution\nOrganisation de tests\nDe performance\nDe fiabilité\nDe sécurité\n21"
+             }
           },
-          "id": "tt0803096",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "4846",
-        "_score": 6.180084,
-        "_source": {
-          "fields": {
-            "directors": ["Ronald Neame", "Irwin Allen"],
-            "release_date": "1972-12-12T00:00:00Z",
-            "rating": 7,
-            "genres": ["Action", "Adventure"],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMTczNDU2MzIzNl5BMl5BanBnXkFtZTYwNjg0MDY5._V1_SX400_.jpg",
-            "plot": "A group of passengers struggle to survive and escape, when their ocean liner completely capsizes at sea.",
-            "title": "The Poseidon Adventure",
-            "rank": 4846,
-            "running_time_secs": 7020,
-            "actors": ["Gene Hackman", "Ernest Borgnine", "Shelley Winters"],
-            "year": 1972
-          },
-          "id": "tt0069113",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "318",
-        "_score": 5.7179503,
-        "_source": {
-          "fields": {
-            "directors": ["Richard Donner"],
-            "release_date": "1985-06-07T00:00:00Z",
-            "rating": 7.6,
-            "genres": ["Adventure", "Comedy", "Family"],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMTY1Mzk3MTg0M15BMl5BanBnXkFtZTcwOTQzODYyMQ@@._V1_SX400_.jpg",
-            "plot": "A group of kids embark on a wild adventure after finding a pirate treasure map.",
-            "title": "The Goonies",
-            "rank": 318,
-            "running_time_secs": 6840,
-            "actors": ["Sean Astin", "Josh Brolin", "Jeff Cohen"],
-            "year": 1985
-          },
-          "id": "tt0089218",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "4576",
-        "_score": 5.7179503,
-        "_source": {
-          "fields": {
-            "directors": ["Steven Spielberg"],
-            "release_date": "1989-12-22T00:00:00Z",
-            "rating": 6.2,
-            "genres": ["Fantasy", "Romance", "Drama"],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMjAxMjM3NzI5Ml5BMl5BanBnXkFtZTcwNDQ1NTMyMQ@@._V1_SX400_.jpg",
-            "plot": "A romantic adventure about a legendary pilot's passion for dare-devil firefighting and his girl.",
-            "title": "Always",
-            "rank": 4576,
-            "running_time_secs": 7320,
-            "actors": ["Richard Dreyfuss", "Holly Hunter", "Brad Johnson"],
-            "year": 1989
-          },
-          "id": "tt0096794",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "309",
-        "_score": 5.396308,
-        "_source": {
-          "fields": {
-            "directors": ["Tim Burton"],
-            "release_date": "1985-07-26T00:00:00Z",
-            "rating": 6.8,
-            "genres": ["Adventure", "Comedy", "Family", "Fantasy"],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMjEyMjI3MjAxMF5BMl5BanBnXkFtZTYwOTMxNzk4._V1_SX400_.jpg",
-            "plot": "When eccentric man-child Pee-Wee Herman gets his beloved bike stolen in broad daylight, he sets out across the U.S. on the adventure of his life.",
-            "title": "Pee-wee's Big Adventure",
-            "rank": 309,
-            "running_time_secs": 5400,
-            "actors": ["Paul Reubens", "Elizabeth Daily", "Mark Holton"],
-            "year": 1985
-          },
-          "id": "tt0089791",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "1016",
-        "_score": 5.396308,
-        "_source": {
-          "fields": {
-            "directors": ["Sean Garrity"],
-            "release_date": "2012-09-11T00:00:00Z",
-            "rating": 6,
-            "genres": ["Comedy", "Romance"],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMjI5MTYzOTMyNF5BMl5BanBnXkFtZTcwNTgwNDYzOQ@@._V1_SX400_.jpg",
-            "plot": "To win back his ex-girlfriend, a conservative accountant enlists the help of an exotic dancer to guide him on a quest for sexual experience, leading him into a world of strip clubs, sensual massage parlors, cross-dressing and S & M.",
-            "title": "My Awkward Sexual Adventure",
-            "rank": 1016,
-            "running_time_secs": 5880,
-            "actors": ["Jonas Chernick", "Emily Hampshire", "Sarah Manninen"],
-            "year": 2012
-          },
-          "id": "tt2112210",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "2016",
-        "_score": 5.396308,
-        "_source": {
-          "fields": {
-            "directors": ["Stephen Herek"],
-            "release_date": "1989-02-17T00:00:00Z",
-            "rating": 6.8,
-            "genres": ["Adventure", "Comedy", "Sci-Fi"],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMTk3Mjk5MzI3OF5BMl5BanBnXkFtZTcwMTY4MzcyNA@@._V1_SX400_.jpg",
-            "plot": "Two seemingly dumb teens struggle to prepare a historical presentation with the help of a time machine.",
-            "title": "Bill & Ted's Excellent Adventure",
-            "rank": 2016,
-            "running_time_secs": 5400,
-            "actors": ["Keanu Reeves", "Alex Winter", "George Carlin"],
-            "year": 1989
-          },
-          "id": "tt0096928",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "2448",
-        "_score": 5.396308,
-        "_source": {
-          "fields": {
-            "directors": ["Jon Favreau"],
-            "release_date": "2005-11-06T00:00:00Z",
-            "rating": 6.1,
-            "genres": [
-              "Action",
-              "Adventure",
-              "Comedy",
-              "Family",
-              "Fantasy",
-              "Sci-Fi"
-            ],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMjEyOTQ2ODg4OV5BMl5BanBnXkFtZTcwMjk2ODUzMQ@@._V1_SX400_.jpg",
-            "plot": "Two young brothers are drawn into an intragalactic adventure when their house is magically hurtled through space because of the board game they are playing.",
-            "title": "Zathura: A Space Adventure",
-            "rank": 2448,
-            "running_time_secs": 6780,
-            "actors": ["Josh Hutcherson", "Jonah Bobo", "Dax Shepard"],
-            "year": 2005
-          },
-          "id": "tt0406375",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "4162",
-        "_score": 5.307771,
-        "_source": {
-          "fields": {
-            "directors": ["Juan José Campanella"],
-            "release_date": "2013-07-18T00:00:00Z",
-            "rating": 7.7,
-            "genres": ["Animation", "Adventure", "Romance", "Sport"],
-            "image_url": "http://ia.media-imdb.com/images/M/MV5BMTEzMjY1OTM5NjVeQTJeQWpwZ15BbWU3MDcyMjU2NTk@._V1_SX400_.jpg",
-            "plot": "A young man named Amadeo sets off on an unexpected adventure with the players of his beloved Foosball game.",
-            "title": "Metegol",
-            "rank": 4162,
-            "running_time_secs": 6360,
-            "actors": ["Rupert Grint", "Anthony Head", "Juan José Campanella"],
-            "year": 2013
-          },
-          "id": "tt1634003",
-          "type": "add"
-        }
-      },
-      {
-        "_index": "movies",
-        "_type": "movie",
-        "_id": "123",
-        "_score": 5.2142596,
-        "_source": {
-          "fields": {
-            "directors": ["Patrick Hughes"],
-            "release_date": "2014-08-13T00:00:00Z",
-            "genres": ["Action", "Adventure", "Thriller"],
-            "plot": "The third installment of the action-adventure franchise that follows the exploits of Barney Ross, Lee Christmas, and their associates.",
-            "title": "The Expendables 3",
-            "rank": 123,
-            "year": 2014,
-            "actors": [
-              "Jason Statham",
-              "Sylvester Stallone",
-              "Arnold Schwarzenegger"
-            ]
-          },
-          "id": "tt2333784",
-          "type": "add"
-        }
-      }
-    ]
-  }
-}
+          {
+            "_index":"documents",
+            "_type":"_doc",
+            "_id":"WQjr83gBhS_8yyIQVUJx",
+            "_score":0.2911762,
+            "_source":{
+               "title":"Présentation PowerPoint",
+               "author":"Jérémy PERROUAULT",
+               "content":"\n\nARCHITECTURES WEB\nJérémy PERROUAULT\n1\n\nINTRODUCTION\nLes archis quoi ?\n2\n\nINTRODUCTION –LE WEB\nStructure Internet\nProtocole TCP\n3\n\nINTRODUCTION –L’ARCHITECTE\nN’est pas une star obligé de connaître tout sur tout\nIl est obligé d’en savoir un peu sur tout\nN’est pas un administrateur réseau\n4\n\nINTRODUCTION –ÊTRE ARCHITECTE\nOn est pas là pour\nExpliquer que 10 millions de requêtes ne passeront pas sur un serveur OVH\nApprendre à corriger le foutoir qu’un autre architecte a laissé derrière lui\nEviter les problèmes\n\"Avoidproblemsand you’llneverbethe one whoovercamethem.\" -Richard Bach\n5\n\nINTRODUCTION –LES TECHNOLOGIES\nJEE\nASP\nPHP\nMySQL\nSQL Server\nOracle\nMongoDB\n6\nLinux\nWindows\nNodeJS\nPython\nVarnish\nBackBonesJS\nRuby\nCDN\nSOLR\nApache\nNginx\nMemcached\nIIS\n\nINTRODUCTION –L’ARCHITECTE\nConcevoir la solution dans son ensemble\nAvec les contraintes techniques et budgétaires\nOrganisation et l’imbrication des éléments qui doivent composer la solution\n2 façons de concevoir une application\nLa plus simple qui soit (pas d’anomalies possibles)\nLa plus complexe qui soit (difficile de déceler les anomalies)\n7\n\nINTRODUCTION –L’ARCHITECTE\nFlux\nQui parle à qui, en quelle langue ?\nLogiciels\nQuels composants je vais utiliser, et pourquoi je vais les mettre en place ?\nMatériels\nQuelles machines choisir, et pour quel usage ?\nCombien\nQuel est le budget dont je dispose ?\nDe combien de machines j’ai besoin ?\nDe quelle bande passante la solution que je met en place demandera ?\nDe combien de jours-homme j’ai à ma disposition ?\nAutres\nComment optimiser ?\nComment rendre la solution évolutive ?\nComment débuguer ?\nComment tester ?\nIntégration continue ?\n8\n\nINTRODUCTION –EXEMPLE DE MAUVAISE ARCHI\nUn site lent\nPerte de revenus\nUn site qui tombe\nPerte de trafic ➔perte de revenus\nUne appli bourrée de bugs aléatoires\nAudits et correctifs\nAmélioration de la vitesse avec uniquementdes machines\nPerte de marge\n9\n\nLA QUALITÉ\nLa fiabilité\nLa sécurité\n10\n\nLA QUALITÉ\nL’architecte met en œuvre sa solution\nDoit répondre aux exigences fonctionnelles\nDoit être maintenable\nDoit être évolutive\nDoit être performante\nDoit être sécurisée (voir top 10 des vulnérabilités Web par OWASP)\nDoit être fiable (taux de disponibilité)\n11\n\nTAUX DE DISPONIBILITÉ\nSe calcule en pourcentages\nVarie entre 95% et 99,999 %\n365 jours x 24 heures = 8 760 heures\nUn taux de dispo de X%\nX * 8 760 / 100 = D ➔heures de disponibilité\n8 760 -D = I ➔heures d’indisponibilité\n12\n\nTAUX DE DISPONIBILITÉ\nJ’ai un taux de disponibilité de 98% sur l’année\nA combien d’indisponibilité cela répond ?\n4 heures\n7 jours\n23 heures\n10 jours\n13\n\nTEMPS DE CHARGEMENT\nEn 2016, un benchmark US (Compass) concluait : \"1 seconde de temps \nde chargement supplémentaire pénalise la conversion de 12%\"\nEn 2015, Etam annonçait un gain de 20% de taux de conversion après \nune baisse du temps de réponse moyen de 0,7 seconde par page\nCe n’est pas toujours le trafic qui génère un site lent\nEt il faut prendre en compte toutes les étapes pour arriver jusqu’à la page web\n14\n\nTEMPS DE CHARGEMENT\nRésolution DNS\nEtablir une connexion TCP\nEnvoyer la requête\nRoutage\nProxy ?\nLoadbalancing?\nServeurs de cache ?\nServeurs applicatifs\nBase de données\n15\nGénération de la page HTML\nCompression de la page HTML ?\nEnvoie du flux\nRoutage\nGénération visuelle\nChargement des ressources\nImages, Scripts, Feuilles de style\nExécution du JS\nSans compter sur l’état de la connectivité du client\n\nMETTRE EN CACHE –POURQUOI ?\nEviter de refaire un travail (temps machine) déjà fait\nRépondre plus vite\nParce que la RAM n’est pas un coût excessif\n16\n\nMETTRE EN CACHE\nUtilisation d’un CDN\nCache de base de données (en mémoire ou en fichier)\nDevant un serveur web (Varnish)\nVarnish, sur le port 80\nApache, sur le port 8080\nApplication (Memcached)\nRésultat intermédiaire lors de la génération d’une page (commentaires d’article)\nCe qui peut être commun à plusieurs pages (menu principal)\nUtiliser la session utilisation pour éviter de lire ou écrire en base de données\nRésultat de requêtes longues\nRésultat d’appels aux web services\n...\n17\n\nMETTRE EN CACHE –ATTENTION\nAttention à ne pas exagérer !\nCertaines pages ne peuvent pas être cachées (panier utilisateur)\nLe cache n’est efficace que lorsqu’une même ressource est beaucoup \ndemandée\n18\n\nMETTRE EN CACHE –SOLUTIONS ?\nOptimisation de la génération des pages avec du NoSQL(MongoDB)\nMise en place d’un TTL infini avec un système d’invalidation intelligent\nSavoir quand chaque page est invalidée\nMise en place de crawling\nSimuler un trafic permanent sur le site qu’on garde en cache qu’on va utiliser pour les \nvraies requêtes\n19\n\nPROJET\nProjet de recherche\n20\n\nLE PROJET EN GROUPE\nMettre en place la solution web\nPrésentation de la solution\nOrganisation de tests\nDe performance\nDe fiabilité\nDe sécurité\n21"
+            }
+         }
+       ]
+    }
+ }
