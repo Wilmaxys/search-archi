@@ -25,11 +25,11 @@ server.route({
   handler: async function (request, reply) {
     const query = (request.query as any)["query"]
     const { body } = await client.search({
-      index: 'game-of-thrones',
+      index: 'documents',
       body: {
         query: {
           match: {
-            quote: query
+            content: query
           }
         }
       }
@@ -49,42 +49,10 @@ server.listen(8080, '0.0.0.0', (err) => {
 });
 
 //ElasticSearch client
-export const client = new Client({
+const client = new Client({
   node: 'http://elastic:9200',
   auth: {
     username: process.env.ELASTICSEARCH_USER || "",
     password: process.env.ELASTICSEARCH_PASSWORD || ""
   }
 })
-
-
-async function initData() {
-  await client.index({
-    index: 'game-of-thrones',
-    refresh: true,
-    body: {
-      character: 'Ned Stark',
-      quote: 'Winter is coming.'
-    }
-  })
-
-  await client.index({
-    index: 'game-of-thrones',
-    refresh: true,
-    body: {
-      character: 'Daenerys Targaryen',
-      quote: 'I am the blood of the dragon.'
-    }
-  })
-
-  await client.index({
-    index: 'game-of-thrones',
-    refresh: true,
-    body: {
-      character: 'Tyrion Lannister',
-      quote: 'A mind needs books like a sword needs a whetstone.'
-    }
-  })
-}
-
-initData().catch(console.log)
