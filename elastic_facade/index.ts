@@ -34,6 +34,7 @@ server.route({
     const { body } = await client.search({
       index: 'documents',
       body: {
+        _source: ["author", "title", "path"],
         query: {
           match: {
             content: query,
