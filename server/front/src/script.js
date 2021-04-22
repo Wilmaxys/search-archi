@@ -2,27 +2,6 @@ import './style.css';
 
 
 
-function download(name){
-  axios.get("http://localhost:4002/"+name,
-        {
-            responseType: 'arraybuffer',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/pdf'
-            }
-        })
-        .then((response) => {
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', name); //or any other extension
-            document.body.appendChild(link);
-            link.click();
-        })
-        .catch((error) => console.log(error));
-
-
-  }
 
 const axios = require('axios').default;
 axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
@@ -94,24 +73,15 @@ document.getElementById('submitSearch').onclick = function () {
         var extension = result.path.split(".")[result.path.split(".").length-1].toUpperCase();
         var title = result.path.split("/")[result.path.split("/").length-1].replace('.'+extension.toLowerCase(), '');
 
-        document.getElementById("results").innerHTML += '<div class="result" id="result_'+id+'"><hr><h3>'+title+' <span class="author">par '+result.author+'</span> <span class="type">'+extension+'</span></h3><p>'+result.content+'</p></div>';
+        document.getElementById("results").innerHTML += '<div class="result" id="result_'+id+'"><hr><h3>'+title+' <span class="author">par '+result.author+'</span> <span class="type">'+extension+'</span></h3><p>'+result.content+'</p><a class="btn link" download="'+result.path.split("/")[result.path.split("/").length-1]+'">Télécharger le fichier</a></div>';
         
-      
-        var a = document.createElement('a');
-        var linkText = document.createTextNode("Télécharger le fichier");
-        a.appendChild(linkText);
-        a.addEventListener('click', function(){
-          download(result.path.split("/")[result.path.split("/").length-1]);
-        })
-        a.className += "btn";
-
-
-        document.getElementById("result_"+id).append(a);
-
-      
         id++;
       })
-      
+      var els = document.getElementsByClassName("link");
+
+      Array.prototype.forEach.call(els, function(el) {
+        el.onclick= function(){download(el.getAttribute("download"))}
+      });
 
     })
     .catch(function (error) {
@@ -120,3 +90,24 @@ document.getElementById('submitSearch').onclick = function () {
     .then(function () {});
 };
 
+function download(name){
+  axios.get("http://localhost:4002/"+name,
+        {
+            responseType: 'arraybuffer',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/pdf'
+            }
+        })
+        .then((response) => {
+            const url = window.URL.createObjectURL(new Blob([response.data]));
+            const link = document.createElement('a');
+            link.href = url;
+            link.setAttribute('download', name); //or any other extension
+            document.body.appendChild(link);
+            link.click();
+        })
+        .catch((error) => console.log(error));
+
+
+  }
