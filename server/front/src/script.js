@@ -6,7 +6,7 @@ import './style.css';
 const axios = require('axios').default;
 axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-axios.defaults.baseURL = 'http://localhost:8080';
+axios.defaults.baseURL = 'http://localhost:4001';
 
 axios.interceptors.request.use((x) => {
   // to avoid overwriting if another interceptor
