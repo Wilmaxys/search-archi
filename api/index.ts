@@ -5,6 +5,7 @@ import axios, { AxiosResponse } from 'axios';
 import { raceToSuccess } from './utils/functions';
 import { ICache, SimpleCache } from './utils/cache';
 import fastifyCors from 'fastify-cors';
+
 //@Load Env
 dotenv.config();
 
@@ -63,10 +64,6 @@ server.route({
       res.status(500).send(err);
     }
   },
-});
-
-server.get('/test', async (req, res) => {
-  res.send('toto');
 });
 
 //@Hooks
