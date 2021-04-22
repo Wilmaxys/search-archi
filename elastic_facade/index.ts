@@ -2,6 +2,13 @@ import { fastify } from 'fastify';
 
 import { Client } from '@elastic/elasticsearch';
 
+interface SearchResult {
+  content: string;
+  path: string;
+  title?: string;
+  author?: string;
+}
+
 const server = fastify({ logger: true });
 
 //@Routes
@@ -18,7 +25,7 @@ server.route({
     },
     response: {
       200: {
-        type: 'object',
+        type: 'array',
       },
     },
   },
@@ -32,9 +39,21 @@ server.route({
             content: query,
           },
         },
+        highlight: {
+          fields: {
+            content: {},
+          },
+          fragment_size: 250,
+        },
       },
     });
-    reply.send(JSON.stringify(body));
+    reply.send(
+      body?.hits?.hits?.map(
+        (hit: { _source: SearchResult; highlight: { content: string[] } }) => {
+          return { ...hit._source, content: hit.highlight.content[0] };
+        }
+      )
+    );
   },
 });
 
