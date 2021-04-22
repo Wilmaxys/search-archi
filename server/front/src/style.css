@@ -84,10 +84,14 @@ button {
   cursor: pointer;
   color: #fff;
 }
-.result span.find {
+a{
+  cursor: pointer;
+}
+.result em{
   font-weight: bold;
   font-size: 1.2rem;
   border-radius: 20px;
+  text-transform: none;
 }
 .author {
   font-size: 0.8rem;
