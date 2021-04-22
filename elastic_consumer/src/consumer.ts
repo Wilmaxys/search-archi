@@ -10,7 +10,7 @@ export const client = new Client({
   },
 });
 
-/** Mapping data to be stored in elastic search**/
+/** Init elastic search index **/
 async function init() {
   try {
     const exists = await client.indices.exists({
