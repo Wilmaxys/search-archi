@@ -30,7 +30,7 @@ async function init() {
             properties: {
               title: { type: 'text' },
               author: { type: 'text' },
-              content: { type: 'text' },
+              content: { type: 'text', term_vector: "with_positions_offsets" },
               path: { type: 'text' },
             },
           },

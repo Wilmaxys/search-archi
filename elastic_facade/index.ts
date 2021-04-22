@@ -42,9 +42,10 @@ server.route({
         },
         highlight: {
           fields: {
-            content: {},
+            content: {type: "fvh"},
           },
           fragment_size: 250,
+          number_of_fragments: 1,
         },
       },
     });
