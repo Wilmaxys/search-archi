@@ -4,8 +4,9 @@ WORKDIR /usr/src/app
 
 COPY ./front/package*.json ./
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-    && apt-get install -y nodejs
+RUN apt-get update
+
+RUN apt-get install -y nodejs npm
 
 RUN npm install
 

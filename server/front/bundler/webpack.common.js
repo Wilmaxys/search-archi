@@ -9,6 +9,7 @@ module.exports = {
     filename: 'bundle.[contenthash].js',
     path: path.resolve(__dirname, '../dist'),
   },
+  target: 'node',
   devtool: 'source-map',
   plugins: [
     new CopyWebpackPlugin({

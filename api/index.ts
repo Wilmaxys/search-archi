@@ -29,7 +29,7 @@ const facades = ['http://elastic_facade:8080/search'];
 //@Routes
 server.route({
   method: 'GET',
-  url: '/',
+  url: '/api',
   schema: {
     querystring: {
       query: {

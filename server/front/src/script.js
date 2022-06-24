@@ -1,12 +1,8 @@
 import './style.css';
 
-
-
-
 const axios = require('axios').default;
 axios.defaults.headers.post['Content-Type'] ='application/json;charset=utf-8';
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
-axios.defaults.baseURL = 'http://localhost:4001';
 
 axios.interceptors.request.use((x) => {
   // to avoid overwriting if another interceptor
@@ -40,9 +36,11 @@ document.getElementById('resultSearch').style.display = 'none';
 document.getElementById('submitSearch').onclick = function () {
 
   let searchValue = document.getElementById('searchInput').value;
+  const path = `/api?query=` + searchValue;
+  console.log(path);
 
   axios
-    .get('http://localhost:4000?query=' + searchValue)
+    .get(path)
     .then(function (response) {
 
       if (searchValue == '' || searchValue == null) return;
@@ -91,7 +89,7 @@ document.getElementById('submitSearch').onclick = function () {
 };
 
 function download(name){
-  axios.get("http://localhost:4002/"+name,
+      axios.get(`${FILE_PATH}:${FILE_PORT}/${name}`,
         {
             responseType: 'arraybuffer',
             headers: {
