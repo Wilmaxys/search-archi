@@ -2,7 +2,7 @@
 
 ## Command
 
-![Archi](archi2.png)
+![Archi](archi.png)
 
 ```
 docker-compose up --scale api=2
